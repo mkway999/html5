@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="NohEunha">
+    <title>Calculator</title>
+    <script type="text/javascript" src="cal.js"></script>
+</head>
+<body>
+<div>
+    <h1>html 연습 - 계산기</h1>
+</div>
+
+<div>
+    <form>
+        <input type="text" class="txt" id="txtNum" disabled="disabled">
+        <input type="reset" class="btnReset" id="reset" value="모두지우기">
+        <input type="button" class="btnReset" id="del" value="하나지우기" onclick="actionDel()">
+        <br><br>
+
+        <input type="button" class="btnNum" id="n1" value="1" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n2" value="2" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n3" value="3" onclick="inputNum(this)">
+        <input type="button" class="btnCal" id="cAdd" value="+" onclick="actionCal(this)">
+        <br>
+
+        <input type="button" class="btnNum" id="n4" value="4" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n5" value="5" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n6" value="6" onclick="inputNum(this)">
+        <input type="button" class="btnCal" id="cMin" value="-" onclick="actionCal(this)">
+        <br>
+
+        <input type="button" class="btnNum" id="n7" value="7" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n8" value="8" onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n9" value="9" onclick="inputNum(this)">
+        <input type="button" class="btnCal" id="cMul" value="*" onclick="actionCal(this)">
+        <br>
+
+        <input type="button" class="btnNum" id="nCom" value="." onclick="inputNum(this)">
+        <input type="button" class="btnNum" id="n0" value="0" onclick="inputNum(this)">
+        <input type="button" class="btnCal" id="nRes" value="=" onclick="actionResult()">
+        <input type="button" class="btnCal" id="cDiv" value="/" onclick="actionCal(this)">
+    </form>
+    <form>
+        <br><br>
+        <textarea readonly="readonly" class="txtArea" id="history"></textarea>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -24,7 +24,7 @@ function actionCal(obj)
     document.getElementById("txtNum").value="";
 }
 
-// 두 개의 숫자, 하나의 사칙연산 기호가 모이면 계산 시작!
+// 두 개의 숫자, 하나의 사칙연산 기호가 모이면 계산 시작! -> 숫자가 두 개 안 모일 경우 분기 필요
 function actionResult()
 {
     var a = Number(num1);

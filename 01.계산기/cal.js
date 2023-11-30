@@ -44,7 +44,7 @@ function actionResult()
     document.getElementById("history").value+=a + " " + calc + " " + b + " = " + result + "\n";
 }
 
-// 한 글자 씩 지우기
+// 한 글자씩 지우기
 function actionDel()
 {
     var str = document.getElementById("txtNum").value;

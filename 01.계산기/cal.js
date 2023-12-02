@@ -1,9 +1,8 @@
-var calc = "";
-var num1;
-// 클릭하는 숫자 텍스트창에 입력
+var calc="";
+var num1="";
+
 function inputNum(obj)
 {
-    // 소수점은 한 번만!
     if(obj.value==".")
     {
         var arr = document.getElementById("txtNum").value.split("");
@@ -16,15 +15,37 @@ function inputNum(obj)
     document.getElementById("txtNum").value+=obj.value;
 }
 
-// 사칙연산 기호 저장하기~@.@
 function actionCal(obj)
 {
-    calc=obj.value;
-    num1=document.getElementById("txtNum").value;
-    document.getElementById("txtNum").value="";
+    if(num1!="")
+    {
+        num1 = Number(num1);
+        var num2=Number(document.getElementById("txtNum").value);
+        var result;
+        if(calc=="+")
+            result=num1+num2;
+        else if(calc=="-")
+            result=num1-num2;
+        else if(calc=="*")
+            result=num1*num2;
+        else if(calc=="/")
+            result=num1/num2;
+
+        document.getElementById("history").value+=num1 + " " + calc + " " + num2 + " = " + result + "\n";
+        num1 = result;
+        calc = obj.value;
+        document.getElementById("txtHis").value = result + " " + calc;
+        document.getElementById("txtNum").value = "";
+    }
+    else
+    {
+        calc=obj.value;
+        num1=document.getElementById("txtNum").value;
+        document.getElementById("txtHis").value=num1 + " " + calc;
+        document.getElementById("txtNum").value="";
+    }
 }
 
-// 두 개의 숫자, 하나의 사칙연산 기호가 모이면 계산 시작! -> 숫자가 두 개 안 모일 경우 분기 필요
 function actionResult()
 {
     var a = Number(num1);
@@ -38,15 +59,20 @@ function actionResult()
         result=a*b;
     else if(calc=="/")
         result=a/b;
-    // 계산 결과 출력
     document.getElementById("txtNum").value=result;
-    // 계산 기록 출력(누적)
+    document.getElementById("txtHis").value="";
     document.getElementById("history").value+=a + " " + calc + " " + b + " = " + result + "\n";
+    actionReset();
 }
 
-// 한 글자씩 지우기
 function actionDel()
 {
     var str = document.getElementById("txtNum").value;
     document.getElementById("txtNum").value=str.substring(0,str.length-1);
+}
+
+function actionReset()
+{
+    calc="";
+    num1="";
 }

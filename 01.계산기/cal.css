@@ -1,0 +1,64 @@
+#txtBox
+{
+    display: inline-block;
+    background-color: rgb(230, 255, 255);
+    padding: 8px 10px;
+    margin: 10px;
+    width: 200px;
+}
+input.txt
+{
+    border: 0px;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
+    width: 200px;
+    font-size: 18pt;
+}
+#btnDel
+{
+    display: inline-block;
+    width: 80px;
+}
+input.btnReset
+{
+    width: 80px;
+    height: 28px;
+    margin-top: 15px;
+}
+#txtNum
+{
+    text-align: right;
+    color: rgb(20, 20, 20);
+}
+#txtHis
+{
+    color: rgb(172, 172, 172);
+    text-align: left;
+    font-style: italic;
+}
+input.btnNum, input.btnCal
+{
+    margin: 1.5px;
+    width: 50px;
+    height: 50px;
+    font-size: 13pt;
+    line-height: 50px;
+    text-shadow: 1px 1.5px 2.5px rgb(126, 126, 126);
+    background-color: rgb(237, 255, 255);
+    border-width: 1px;
+    border-style: groove;
+}
+input.btnNum:hover, input.btnCal:hover
+{
+    background-color: rgb(207, 255, 255);
+}
+#hisReset
+{
+    margin-bottom: 10px;
+}
+#history
+{
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+}

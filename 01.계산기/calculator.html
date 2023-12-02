@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="NohEunha">
     <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="cal.css">
     <script type="text/javascript" src="cal.js"></script>
 </head>
-<body>
+<body style="text-align: center;">
 <div>
     <h1>html 연습 - 계산기</h1>
 </div>
 
 <div>
     <form>
-        <input type="text" class="txt" id="txtNum" disabled="disabled">
-        <input type="reset" class="btnReset" id="reset" value="모두지우기">
-        <input type="button" class="btnReset" id="del" value="하나지우기" onclick="actionDel()">
+        <span id="txtBox"><input type="text" class="txt" id="txtHis" disabled="disabled">
+        <input type="text" class="txt" id="txtNum" disabled="disabled"></span>
+        <sapn id="btnDel"><input type="reset" class="btnReset" id="reset" value="모두지우기" onclick="actionReset()">
+        <input type="button" class="btnReset" id="del" value="하나지우기" onclick="actionDel()"></sapn>
         <br><br>
 
         <input type="button" class="btnNum" id="n1" value="1" onclick="inputNum(this)">
@@ -42,11 +44,10 @@
         <input type="button" class="btnCal" id="cDiv" value="/" onclick="actionCal(this)">
     </form>
     <form>
-        <br><br>
+        <input type="reset" class="btnReset" id="hisReset" value="기록지우기"><br>
         <textarea readonly="readonly" class="txtArea" id="history"></textarea>
     </form>
 </div>
-
 
 </body>
 </html>

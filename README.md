@@ -1,6 +1,6 @@
 <div align="center">
   <h1>HTML5를 연습하고 만져보는 공간</h1>
-  <h3>only HTML + CSS + Javascript!!</h3>
+  <h3>Practice HTML + CSS + Javascript!!</h3>
   <br>
   <table>
     <tr>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="NohEunha">
+    <title>Calendar</title>
+    <script type="text/javascript" src="calendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="calendar.css">
+</head>
+<body style="text-align: center;" onload="createTable()">
+    <div>
+        <h1>html 연습 - 만년달력</h1>
+        <hr>
+    </div>
+
+    <div>
+        <form>
+            <input type="text" class="txt" id="txtYear"> 년
+            <input type="text" class="txt" id="txtMonth"> 월
+            <br>
+            <input type="button" value="확인" onclick="actionCalendar()">
+        </form>
+        <table id="tblCalendar">
+            <!--
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+            -->
+        </table>
+    </div>
+
+</body>
+</html>

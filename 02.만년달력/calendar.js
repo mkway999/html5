@@ -1,17 +1,24 @@
+var tableNode;
+var tbodyNode=null;
+
 function createTable()
 {
-    var tableNode = document.getElementById("tblCalendar");
-    var thNode = document.createElement("th");
+    tableNode = document.getElementById("tblCalendar");
+
+    if(tableNode.childNodes[0].nodeType==1)
+        tbodyNode = tableNode.childNodes[0];
+    else
+        tbodyNode = tableNode.childNodes[1];
+
+    for(var i = tbodyNode.childNodes.length-1; i>=0; i--)
+        tbodyNode.removeChild(tbodyNode.childNodes[i]);
+    
     var trNode = document.createElement("tr");
     var arrWeek = ["일", "월", "화", "수", "목", "금", "토"];
+
     for(var i=0; i<arrWeek.length; i++)
-    {
-        var txtNode = document.createTextNode(arrWeek[i]);
-        thNode.appendChild(txtNode);
-        trNode.appendChild(thNode);
-        thNode = document.createElement("th");
-    }
-    tableNode.appendChild(trNode);
+        trNode.appendChild(createNode(arrWeek[i]));
+    tbodyNode.appendChild(trNode);
 }
 
 function createNode(val)
@@ -24,8 +31,7 @@ function createNode(val)
 
 function actionCalendar()
 {
-    document.getElementById("tblCalendar").value = " ";
-    var tableNode = document.getElementById("tblCalendar");
+    createTable();
     var trNode = document.createElement("tr");
     var year = Number(document.getElementById("txtYear").value);
     var month = Number(document.getElementById("txtMonth").value);
@@ -53,8 +59,14 @@ function actionCalendar()
         trNode.appendChild(createNode(i));
         if((week+1+i)%7==0 || i==arrDate[month-1])
         {
-            tableNode.appendChild(trNode);
+            tbodyNode.appendChild(trNode);
             trNode = document.createElement("tr");
         }
     }
+}
+
+function actionYearUp()
+{
+    document.getElementById("txtYear").value = 
+    Number(document.getElementById("txtYear").value)+1;
 }

@@ -3,3 +3,20 @@
     display: inline-block;
     margin-top: 10px;
 }
+input.txt
+{
+    background-color: white;
+    border-width: 0.5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 30px;
+}
+#txtYear
+{
+    width: 60px;
+}
+#txtMonth
+{
+    width: 30px;
+}

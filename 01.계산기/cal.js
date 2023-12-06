@@ -15,14 +15,12 @@ function inputNum(obj)
     document.getElementById("txtNum").value+=obj.value;
 }
 
-function actionCal(obj)
+function calculate(number)
 {
-    if(num1!="")
-    {
-        num1 = Number(num1);
-        var num2=Number(document.getElementById("txtNum").value);
-        var result;
-        if(calc=="+")
+    num1 = Number(num1);
+    var num2 = Number(number);
+    var result = 0;
+    if(calc=="+")
             result=num1+num2;
         else if(calc=="-")
             result=num1-num2;
@@ -30,7 +28,15 @@ function actionCal(obj)
             result=num1*num2;
         else if(calc=="/")
             result=num1/num2;
+    return result;
+}
 
+function actionCal(obj)
+{
+    if(num1!="")
+    {
+        var num2 = Number(document.getElementById("txtNum").value);
+        var result = calculate(num2);
         document.getElementById("history").value+=num1 + " " + calc + " " + num2 + " = " + result + "\n";
         num1 = result;
         calc = obj.value;
@@ -48,20 +54,11 @@ function actionCal(obj)
 
 function actionResult()
 {
-    var a = Number(num1);
-    var b = Number(document.getElementById("txtNum").value);
-    var result = "";
-    if(calc=="+")
-        result=a+b;
-    else if(calc=="-")
-        result=a-b;
-    else if(calc=="*")
-        result=a*b;
-    else if(calc=="/")
-        result=a/b;
+    var num2 = Number(document.getElementById("txtNum").value);
+    var result = calculate(num2);
     document.getElementById("txtNum").value=result;
     document.getElementById("txtHis").value="";
-    document.getElementById("history").value+=a + " " + calc + " " + b + " = " + result + "\n";
+    document.getElementById("history").value+=num1 + " " + calc + " " + num2 + " = " + result + "\n";
     actionReset();
 }
 

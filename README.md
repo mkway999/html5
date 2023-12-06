@@ -9,15 +9,15 @@
     </tr>
     <tr>
       <td>01</td>
-      <td><a href="https://github.com/mkway999/html5/tree/main/01.%EA%B3%84%EC%82%B0%EA%B8%B0">계산기</a></td>
+      <td><a href="01.계산기">계산기</a></td>
     </tr>
     <tr>
       <td>02</td>
-      <td><a href="https://github.com/mkway999/html5/tree/main/02.%EB%A7%8C%EB%85%84%EB%8B%AC%EB%A0%A5">만년달력</a></td>
+      <td><a href="02.만년달력">만년달력</a></td>
     </tr>
     <tr>
       <td>03</td>
-      <td><a href="https://github.com/mkway999/html5/tree/main/03.%EC%95%84%EC%9D%B4%EC%8A%A4%ED%81%AC%EB%A6%BC%20%EA%B3%A0%EB%A5%B4%EA%B8%B0">아이스크림 고르기</a></td>
+      <td><a href="03.아이스크림 고르기">아이스크림 고르기</a></td>
     </tr>
   </table>
 </div>

@@ -31,10 +31,17 @@ function createNode(val)
 
 function actionCalendar()
 {
+    
     createTable();
     var trNode = document.createElement("tr");
     var year = Number(document.getElementById("txtYear").value);
     var month = Number(document.getElementById("txtMonth").value);
+    if(month>12 || month<1)
+    {
+        alert("입력한 월을 확인해주세요.");
+        onloadSet();
+        return;
+    }
     var arrDate = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
     var nalsu = (year-1)*365 + parseInt((year-1)/4) - parseInt((year-1)/100) + parseInt((year-1)/400);
@@ -65,8 +72,61 @@ function actionCalendar()
     }
 }
 
-function actionYearUp()
+function onloadSet()
 {
-    document.getElementById("txtYear").value = 
-    Number(document.getElementById("txtYear").value)+1;
+    var date = new Date();
+    document.getElementById("txtYear").value = date.getFullYear();
+    document.getElementById("txtMonth").value = date.getMonth()+1;
+    actionCalendar();
+}
+
+function actionYearChange(val)
+{
+    if(val=="+")
+    {
+        document.getElementById("txtYear").value = 
+        Number(document.getElementById("txtYear").value)+1;
+    }
+    else if(val=="-")
+    {
+        document.getElementById("txtYear").value = 
+        Number(document.getElementById("txtYear").value)-1;
+    }
+    else
+    {
+        alert("도대체 뭘 누르신 건가요..?");
+        return;
+    }
+    actionCalendar();
+}
+
+function actionMonthChange(val)
+{
+    if(val=="+")
+    {
+        if(document.getElementById("txtMonth").value=="12")
+        {
+            alert("1월 이상 12월 이하의 달력만 조회가 가능합니다.");
+            return;
+        }
+        document.getElementById("txtMonth").value = 
+        Number(document.getElementById("txtMonth").value)+1;
+    }
+    else if(val=="-")
+    {
+        if(document.getElementById("txtMonth").value=="1")
+        {
+            alert("1월 이상 12월 이하의 달력만 조회가 가능합니다.");
+            return;
+        }
+        document.getElementById("txtMonth").value = 
+        Number(document.getElementById("txtMonth").value)-1;
+    }
+    else
+    {
+        alert("도대체 뭘 누르신 건가요..?");
+        return;
+    }
+
+    actionCalendar();
 }

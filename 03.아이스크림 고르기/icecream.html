@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ice_cream</title>
     <link rel="stylesheet" type="text/css" href="icecream.css">
+    <script type="text/javascript" src="icecream.js"></script>
 </head>
 <body>
     <div style="text-align: center;">
@@ -14,41 +15,45 @@
     <div id="size">
         <span class="info">[ 사이즈 선택 ]</span><br>
         <form>
-            <label><input type="radio" name="selectSize" value="1"> 1가지</label>
-            <label><input type="radio" name="selectSize" value="2"> 2가지</label>
-            <label><input type="radio" name="selectSize" value="3"> 3가지</label>
-            <label><input type="radio" name="selectSize" value="4"> 4가지</label>
-            <label><input type="radio" name="selectSize" value="5"> 5가지</label>
+            <div onchange="choiceSize()">
+                <label><input type="radio" name="selectSize" value="1"> 1가지</label>
+                <label><input type="radio" name="selectSize" value="2"> 2가지</label>
+                <label><input type="radio" name="selectSize" value="3"> 3가지</label>
+                <label><input type="radio" name="selectSize" value="4"> 4가지</label>
+                <label><input type="radio" name="selectSize" value="5"> 5가지</label>
+            </div>
         </form>
     </div>
     <br>
 
+    <div id="flavor">
+        <span class="info">[ 종류 선택 ]</span><br>
         <form>
-            -- 종류 선택 -- <br><br>
-            <label><input type="checkbox" name="selectFlavor" id="f1" value="f1"> 엄마는외계인</label>
-            <label><input type="checkbox" name="selectFlavor" id="f2" value="f2"> 레인보우샤베트</label>
-            <label><input type="checkbox" name="selectFlavor" id="f3" value="f3"> 민트초코</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f1" value="f1" onchange="choiceFlavor(this)"> 엄마는외계인</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f2" value="f2" onchange="choiceFlavor(this)"> 레인보우샤베트</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f3" value="f3" onchange="choiceFlavor(this)"> 민트초코</label>
             <br>
             
-            <label><input type="checkbox" name="selectFlavor" id="f4" value="f4"> 바람과함께사라지다</label>
-            <label><input type="checkbox" name="selectFlavor" id="f5" value="f5"> 애플민트</label>
-            <label><input type="checkbox" name="selectFlavor" id="f6" value="f6"> 초코나무숲</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f4" value="f4" onchange="choiceFlavor(this)"> 바람과함께사라지다</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f5" value="f5" onchange="choiceFlavor(this)"> 애플민트</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f6" value="f6" onchange="choiceFlavor(this)"> 초코나무숲</label>
             <br>
             
-            <label><input type="checkbox" name="selectFlavor" id="f7" value="f7"> 피스타치오아몬드</label>
-            <label><input type="checkbox" name="selectFlavor" id="f8" value="f8"> 아몬드봉봉</label>
-            <label><input type="checkbox" name="selectFlavor" id="f9" value="f9"> 요거트31</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f7" value="f7" onchange="choiceFlavor(this)"> 피스타치오아몬드</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f8" value="f8" onchange="choiceFlavor(this)"> 아몬드봉봉</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f9" value="f9" onchange="choiceFlavor(this)"> 요거트31</label>
             <br>
             
-            <label><input type="checkbox" name="selectFlavor" id="f10" value="f10"> 체리쥬빌레</label>
-            <label><input type="checkbox" name="selectFlavor" id="f11" value="f11"> 슈팅스타</label>
-            <label><input type="checkbox" name="selectFlavor" id="f12" value="f12"> 사랑에빠진딸기</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f10" value="f10" onchange="choiceFlavor(this)"> 체리쥬빌레</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f11" value="f11" onchange="choiceFlavor(this)"> 슈팅스타</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f12" value="f12" onchange="choiceFlavor(this)"> 사랑에빠진딸기</label>
             <br>
             
-            <label><input type="checkbox" name="selectFlavor" id="f13" value="f13"> 뉴욕치즈케이크</label>
-            <label><input type="checkbox" name="selectFlavor" id="f14" value="f14"> 쿠앤크</label>
-            <label><input type="checkbox" name="selectFlavor" id="f15" value="f15"> 베리베리스트로베리</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f13" value="f13" onchange="choiceFlavor(this)"> 뉴욕치즈케이크</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f14" value="f14" onchange="choiceFlavor(this)"> 쿠앤크</label>
+            <label><input type="checkbox" name="selectFlavor" class="selectFlavor" id="f15" value="f15" onchange="choiceFlavor(this)"> 베리베리스트로베리</label>
             <br>
         </form>
+    </div>
 </body>
 </html>

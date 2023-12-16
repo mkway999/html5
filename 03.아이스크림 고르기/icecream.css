@@ -1,9 +1,20 @@
 #size
 {
-    display: inline-block;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0px 10px 25%;
     padding: 10px 0px;
     background-color: pink;
     width: 50%;
+}
+#flavor
+{
+    text-align: center;
+    background-color: paleturquoise;
+    width: 50%;
+    margin: 0px 0px 20px 25%;
+    padding: 10px 0px;
+}
+.selectFlavor
+{
+    margin: 5px;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>VendingMachine</title>
     <link rel="stylesheet" type="text/css" href="vending.css">
+    <script type="text/javascript" src="vending.js"></script>
 </head>
 <body>
 <div>
@@ -12,7 +13,12 @@
 </div>
 
 <div id="current">
-    현재 투입 금액은 <input type="text" value="0" readonly="readonly" class="txt" id="txt_current">원 입니다.
+    <span>현재 투입 금액은 <input type="text" readonly="readonly" class="txt" id="txt_current" placeholder="0">원 입니다.</span>
+    <br><br>
+    <span><input type="text" class="txt" id="txt_input"> 원 <button type="button" class="btn" onclick="inputMoney()">투입하기</button></span>
+</div>
+<br><br>
+<div>
 
 </div>
 

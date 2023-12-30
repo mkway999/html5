@@ -4,4 +4,6 @@ hr {width: 700px;}
 #txt_current {text-align: center; border: 0; width: 80px;}
 .product {display: inline-block; border: 1px solid; padding: 5px 10px; margin: 5px 10px 15px 10px;}
 #products {text-align: center;}
-.btnCount {border-radius: 50%; border: none; margin: 0px 5px;}
+.btnCount {border-radius: 50%; border: none; margin: 0px 5px; background-color: rgb(233, 233, 233);}
+.btnCount:hover {background-color: rgb(208, 208, 208);}
+.txtCount {width: 25px; text-align: center; font-size: 11px; border: none;}

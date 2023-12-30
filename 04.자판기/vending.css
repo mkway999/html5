@@ -2,3 +2,6 @@ h1 {text-align: center;}
 hr {width: 700px;}
 #current {text-align: center; margin-top: 20px;}
 #txt_current {text-align: center; border: 0; width: 80px;}
+.product {display: inline-block; border: 1px solid; padding: 5px 10px; margin: 5px 10px 15px 10px;}
+#products {text-align: center;}
+.btnCount {border-radius: 50%; border: none; margin: 0px 5px;}

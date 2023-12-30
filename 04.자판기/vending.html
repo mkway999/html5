@@ -13,17 +13,36 @@
 </div>
 
 <div id="current">
-    <span>현재 투입 금액은 <input type="text" readonly="readonly" class="txt" id="txt_current" placeholder="0">원 입니다.</span>
+    현재 투입 금액은 <input type="text" readonly="readonly" class="txt" id="txt_current" placeholder="0">원 입니다.
     <br><br>
     <span><input type="text" class="txt" id="txt_input"> 원 <button type="button" class="btn" onclick="inputMoney()">투입하기</button></span>
 </div>
 <br><br>
 <div id="products">
-    <div class="product">상품1<br>가격1<br><button type="button" value="-" class="btnCount">-</button><input type="text" class="txtCount" readonly="readonly" value="0"><button type="button" class="btnCount" value="+">+</button></div>
-    <div class="product">상품2<br>가격2<br><button type="button" value="-" class="btnCount">-</button><input type="text" class="txtCount" readonly="readonly" value="0"><button type="button" class="btnCount" value="+">+</button></div>
-    <div class="product">상품3<br>가격3<br><button type="button" value="-" class="btnCount">-</button><input type="text" class="txtCount" readonly="readonly" value="0"><button type="button" class="btnCount" value="+">+</button></div>
-    <div class="product">상품4<br>가격4<br><button type="button" value="-" class="btnCount">-</button><input type="text" class="txtCount" readonly="readonly" value="0"><button type="button" class="btnCount" value="+">+</button></div>
-    
+    <div class="product">
+        상품1<br><span>1000</span><br>
+        <button type="button" value="-" class="btnCount" onclick="subCount('pro1')">-</button>
+        <input type="text" class="txtCount" id="pro1" readonly="readonly" value="0">
+        <button type="button" class="btnCount" value="+" onclick="addCount('pro1')">+</button>
+    </div>
+    <div class="product">
+        상품2<br><span>2000</span><br>
+        <button type="button" value="-" class="btnCount" onclick="subCount('pro2')">-</button>
+        <input type="text" class="txtCount" id="pro2" readonly="readonly" value="0">
+        <button type="button" class="btnCount" value="+" onclick="addCount('pro2')">+</button>
+    </div>
+    <div class="product">
+        상품3<br>3000<br>
+        <button type="button" value="-" class="btnCount" onclick="subCount('pro3')">-</button>
+        <input type="text" class="txtCount" id="pro3" readonly="readonly" value="0">
+        <button type="button" class="btnCount" value="+" onclick="addCount('pro3')">+</button>
+    </div>
+    <div class="product">
+        상품4<br>4000<br>
+        <button type="button" value="-" class="btnCount" onclick="subCount('pro4')">-</button>
+        <input type="text" class="txtCount" id="pro4" readonly="readonly" value="0">
+        <button type="button" class="btnCount" value="+" onclick="addCount('pro4')">+</button>
+    </div>
 </div>
 
 </body>

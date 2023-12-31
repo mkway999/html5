@@ -1,4 +1,5 @@
 var currentMoney;
+var totalMoney;
 
 function inputMoney()
 {
@@ -19,6 +20,8 @@ function subCount(objId)
         return;
     }
     product.value = Number(product.value)-1;
+    document.getElementById("totalPrice").value = Number(document.getElementById("totalPrice").value) - Number(document.getElementById(objId+"Price").value);
+    totalMoney = document.getElementById("totalPrice");
 }
 
 function addCount(objId)
@@ -30,4 +33,6 @@ function addCount(objId)
         return;
     }
     product.value = Number(product.value)+1;
+    document.getElementById("totalPrice").value = Number(document.getElementById("totalPrice").value) + Number(document.getElementById(objId+"Price").value);
+    totalMoney = document.getElementById("totalPrice");
 }

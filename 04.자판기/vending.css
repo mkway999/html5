@@ -8,5 +8,6 @@ hr {width: 700px;}
 .btnCount:hover {background-color: rgb(208, 208, 208);}
 .txtCount {width: 25px; text-align: center; font-size: 11px; border: none;}
 .txtPrice {width: 45px; text-align: center; border: none;}
-#total {border: 1px solid; text-align: center; margin: auto; width: 400px; padding-top: 10px;}
+#total {border: 1px solid; text-align: center; margin: auto; width: 200px; padding-top: 10px;}
 #totalPrice {padding: 5px;}
+#btns {margin: auto; text-align: center; margin-top: 5px;}

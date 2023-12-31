@@ -13,7 +13,7 @@
 </div>
 
 <div id="current">
-    현재 투입 금액은 <input type="text" readonly="readonly" class="txt" id="txt_current" placeholder="0">원 입니다.
+    현재 투입 금액은 <input type="text" readonly="readonly" class="txt" id="txt_current" value="0">원 입니다.
     <br><br>
     <span><input type="text" class="txt" id="txt_input"> 원 <button type="button" class="btn" onclick="inputMoney()">투입하기</button></span>
 </div>
@@ -48,11 +48,11 @@
         </div>
         <br><br>
         <div id="total">
-            합계<br><input type="text" class="txtPrice" id="totalPrice" readonly="readonly" placeholder="0">원
+            합계<br><input type="text" class="txtPrice" id="totalPrice" readonly="readonly" value="0">원
         </div>
         <div id="btns">
-            <button type="reset" id="btnReset">선택 초기화</button>
-            <button type="button" id="btnBuy">선택 완료</button>
+            <button type="reset" id="btnReset" onclick="resetTotal()">선택 초기화</button>
+            <button type="button" id="btnBuy" onclick="actionBuying()">선택 완료</button>
         </div>
     </form>
 </div>

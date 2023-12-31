@@ -1,5 +1,5 @@
-var currentMoney;
-var totalMoney;
+var currentMoney = 0;
+var totalMoney = 0;
 
 function inputMoney()
 {
@@ -21,7 +21,7 @@ function subCount(objId)
     }
     product.value = Number(product.value)-1;
     document.getElementById("totalPrice").value = Number(document.getElementById("totalPrice").value) - Number(document.getElementById(objId+"Price").value);
-    totalMoney = document.getElementById("totalPrice");
+    totalMoney = Number(document.getElementById("totalPrice").value);
 }
 
 function addCount(objId)
@@ -34,5 +34,24 @@ function addCount(objId)
     }
     product.value = Number(product.value)+1;
     document.getElementById("totalPrice").value = Number(document.getElementById("totalPrice").value) + Number(document.getElementById(objId+"Price").value);
-    totalMoney = document.getElementById("totalPrice");
+    totalMoney = Number(document.getElementById("totalPrice").value);
+}
+
+function actionBuying()
+{
+    if(Number(currentMoney)<Number(totalMoney))
+    {
+        alert("잔액이 부족합니다.");
+        return;
+    }
+    var money = currentMoney - totalMoney;
+    alert("결제가 완료되었습니다.\n잔여 금액은 ["+money+"원] 입니다.");
+    currentMoney = money;
+    document.getElementById("txt_current").value = money;
+    document.forms[0].reset();
+}
+
+function resetTotal()
+{
+    totalMoney = 0;
 }

@@ -23,5 +23,9 @@
       <td>04</td>
       <td><a href="04.자판기">자판기</a></td>
     </tr>
+    <tr>
+      <td>05</td>
+      <td><a href="05.레이아웃 연습">레이아웃 연습</a></td>
+    </tr>
   </table>
 </div>

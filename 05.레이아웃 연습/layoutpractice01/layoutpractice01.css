@@ -1,0 +1,38 @@
+#header, #footer
+{
+    text-align: center;
+    background-color: darkgray;
+    width: 850px;
+    padding: 10px 0px;
+    margin: auto;
+}
+
+#content
+{
+    text-align: center;
+}
+
+#left, #right
+{
+    background-color: beige;
+    width: 200px;
+    height: 600px;
+    padding: 15px 5px;
+    display: inline-block;
+    margin: 0px;
+}
+
+#main
+{
+    height: 600px;
+    background-color: darksalmon;
+    width: 400px;
+    padding: 15px 5px;
+    display: inline-block;
+    margin: 0px;
+}
+
+#right
+{
+    background-color: thistle;
+}

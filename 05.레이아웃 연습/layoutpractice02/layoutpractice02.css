@@ -1,0 +1,16 @@
+span.txt
+{
+    display: inline-block;
+    width: 60px;
+    font-size: 11pt;
+}
+
+div#account
+{
+    display: inline-block;
+}
+
+div#submit
+{
+    display: inline-block;
+}

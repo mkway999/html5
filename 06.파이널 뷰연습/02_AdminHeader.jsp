@@ -63,7 +63,7 @@
             <div class="tab" id="adminAccount"><a href="03_AdminAccountList.jsp">관리자 계정관리</a></div>
             <div class="tab" id="memberAccount"><a href="04_MemberAccountList.jsp">회원 계정관리</a></div>
         </div>
-        <div id="mainLogo">여기는 로고가 들어갈거예요...</div>
+        <div id="mainLogo"><a href="05_AdminMain.jsp">여기는 로고가 들어갈거예요...</a></div>
         <div class="menuTabs">
             <div class="tab" id="announcement">공지사항 관리</div>
             <div class="tab" id="faq">FAQ 관리</div>

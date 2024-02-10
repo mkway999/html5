@@ -22,7 +22,7 @@
 	.nav, .navbar {background-color: white !important;}
 	.nav-item {margin-top: 2px; margin-right: 15px;}
 	.icon {display: inline-block; border-radius: 50px; padding: 1px 12px;}
-	.bi {font-size: 17pt; color: #ff8000;}
+	.bi {font-size: 20pt; color: #ff8000;}
 	.btn {--bs-btn-padding-x: none; --bs-btn-padding-y: none;}
 	.btn.show {border: none;}
 	.hover-text {display: none; border: 1px solid black; position: absolute; padding: 2px 5px; font-size: 9pt;}
@@ -49,6 +49,7 @@
 <body>
 
 <!-- 로그인 성공한 회원들 페이지에 띄워주는 헤더 메뉴들 -->
+<!-- 2023-02-09 노은하 -->
 
 <div class="header-menu row">
 	<nav class="navbar bg-body-tertiary">

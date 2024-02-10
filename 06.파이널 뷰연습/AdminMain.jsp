@@ -16,11 +16,13 @@
 
 <script type="text/javascript" src="<%=cp%>/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <style type="text/css">
 
 	.container {vertical-align: top; margin-top: 30px;}
 	div.profile {display: inline-block; border: 1px solid gray; border-radius: 30px; padding: 10px 20px; vertical-align: top;}
-	div.task, div.task-item {display: inline-block; text-align: center; border: 1px solid gray;}
+	div.task, div.task-item {display: inline-block; text-align: center; }
 	div.task-item {margin: 10px 10px;}
 	div.task-item.graph {display: block;}
 	.btn:hover {border: none !important;}
@@ -36,8 +38,9 @@
 	
 	@media screen and (max-width: 1400px)
 	{
-		div.profile, div.task, div.task-item {display: block; text-align: center;}
+		div.profile {display: block; text-align: center;}
 		div.task {padding: 10px 0px; margin: 10px 0px;}
+		div.graph {width: inherit;}
 	}
 </style>
 
@@ -168,29 +171,31 @@
 		
 			<!-- 타이틀 -->
 			<div class="task-item-title graph-title">
-				신규가입 추이
+				신규가입자 추이
 			</div>
 			
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
+			<canvas id="myChart"></canvas>
+			<script>
+				var chart = document.getElementById('myChart').getContext('2d');
+				var myChart = new Chart(chart,
+					{type: 'line',data:{
+						labels: ['2024-02-05', '2024-02-06', '2024-02-07', '2024-02-08', '2024-02-09', '2024-02-10'],
+					    datasets: [{
+					    	label: '신규 가입자',
+					        data: [5, 0, 2, 19, 1, 0],
+					        backgroundColor:'#ff8000',
+					        borderColor:'#ff8000',
+					        borderWidth: 2
+					        }
+					    ]}, options: {
+					    		scales: {
+					            	yAxes: [{
+					                	ticks: {beginAtZero: true}
+					            			}
+					            		]}
+					    			}
+					});
+			</script>
 		</div>
 	</div>
 	

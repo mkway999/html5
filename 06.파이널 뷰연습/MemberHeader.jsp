@@ -10,46 +10,25 @@
 <meta charset="UTF-8">
 <title>MemberHeader.jsp</title>
 
-<link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.css">
+<!-- 경로 수정 확인~! -->
+<link rel="stylesheet" href="<%=cp %>/css/memberHeader.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-
-<script type="text/javascript" src="<%=cp%>/js/bootstrap.bundle.min.js"></script>
-
-<style type="text/css">
-
-	/* 공통 css */
-	.nav, .navbar {background-color: white !important;}
-	.nav-item {margin-top: 2px; margin-right: 15px;}
-	.icon {display: inline-block; border-radius: 50px; padding: 1px 12px;}
-	.bi {font-size: 20pt; color: #ff8000;}
-	.btn {--bs-btn-padding-x: none; --bs-btn-padding-y: none;}
-	.btn.show {border: none;}
-	.hover-text {display: none; border: 1px solid black; position: absolute; padding: 2px 5px; font-size: 9pt;}
-	.icon-main:hover + .hover-text {display: block;}
-	.icon:hover + .hover-text {display: block;}
-	
-	@media screen and (min-width: 625px)
-	{
-		.header-menu {margin: 2px 150px;}
-		.small-menu {display: none;}
-	
-	}
-	
-	@media screen and (max-width: 625px)
-	{
-		.header-menu {margin: 2px 10px;}
-		.default-menu {display: none;}
-		.dropdown-toggle::after {display: none;}
-		.dropdown-item {--bs-dropdown-link-active-bg : #ff8000;}
-		
-	}
-</style>
 </head>
 <body>
 
 <!-- 로그인 성공한 회원들 페이지에 띄워주는 헤더 메뉴들 -->
 <!-- 2023-02-09 노은하 -->
+
+<!--
+아래 구문들 헤드 영역에 삽입 필요
+
+부트스트랩 5.3.2
+<%-- <link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.css"> --%>
+
+부트스트랩 아이콘
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+-->
 
 <div class="header-menu row">
 	<nav class="navbar bg-body-tertiary">

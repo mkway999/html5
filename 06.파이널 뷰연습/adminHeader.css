@@ -8,12 +8,13 @@
 .icon { border-radius: 50px; background-color: #4367ad;}
 .hover-text {display: none;}
 
+
 @media screen and (min-width: 1600px)
 {
 	.bi {padding: 5px 15px 5px 10px;}
 	.icon {vertical-align: middle; line-height: 250%;}
 	.header-menu {margin: 2px 150px;}
-	span.menu-title {color: white; padding-right: 15px;}
+	span.menu-title {color: white; padding-right: 15px; display: inline-block;}
 }
 
 @media screen and (max-width: 1600px)

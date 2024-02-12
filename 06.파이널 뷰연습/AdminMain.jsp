@@ -19,11 +19,11 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style type="text/css">
-
-	.container {vertical-align: top; margin-top: 30px;}
+	div.header {margin-top: 10px;}
+	.container {vertical-align: top; margin-top: 30px; text-align: center;}
 	div.profile {display: inline-block; border: 1px solid gray; border-radius: 30px; padding: 10px 20px; vertical-align: top;}
 	div.task, div.task-item {display: inline-block; text-align: center; }
-	div.task-item {margin: 10px 10px;}
+	div.task-item {margin: 10px 5px; border-radius: 30px 30px 10px 10px;}
 	div.task-item.graph {display: block;}
 	.btn:hover {border: none !important;}
 	.btn-primary:hover {background-color: #395791 !important;}
@@ -31,16 +31,20 @@
 	.btn {border: none;}
 	.btn-primary {background-color: #4367ad;}
 	.btn-div {margin: 5px 0px; text-align: center;}
-	div.task-item-title {text-align: center; margin: 3px 0px; background-color: #4367ad; border-radius: 30px; padding: 5px 30px; color: white;
+	div.task-item-title {text-align: center; margin: 3px 0px; background-color: #4367ad; border-radius: 20px 20px 0px 0px; padding: 5px 30px; color: white;
 	font-size: 16pt; font-weight: bold;}
 	.bg-danger {font-size: 10pt;}
 	thead, tbody {text-align: center;}
-	
+	div.chart-div {width: inherit;}
+	#myChart {padding-bottom: 10px;}
+	@media screen and (min-width: 1400px)
+	{
+		div.graph {width: auto;}
+	}
 	@media screen and (max-width: 1400px)
 	{
 		div.profile {display: block; text-align: center;}
 		div.task {padding: 10px 0px; margin: 10px 0px;}
-		div.graph {width: inherit;}
 	}
 </style>
 
@@ -94,7 +98,7 @@
 	<div class="task">
 	
 		<!-- 미처리 신고내역 구역 -->
-		<div class="task-item reportList">
+		<div class="task-item reportList shadow">
 			
 			<!-- 타이틀 -->
 			<div class="task-item-title reportList-title position-relative">
@@ -131,7 +135,7 @@
 
 		
 		<!-- 미처리 문의내역 구역 -->		
-		<div class="task-item questionList">
+		<div class="task-item questionList shadow">
 		
 			<!-- 타이틀 -->
 			<div class="task-item-title questionList-title position-relative">
@@ -167,13 +171,14 @@
 		</div>
 		
 		<!-- 신규가입 추이 그래프 구역 -->
-		<div class="task-item graph">
+		<div class="task-item shadow graph">
 		
 			<!-- 타이틀 -->
 			<div class="task-item-title graph-title">
 				신규가입자 추이
 			</div>
 			
+			<div class="chart-div">
 			<canvas id="myChart"></canvas>
 			<script>
 				var chart = document.getElementById('myChart').getContext('2d');
@@ -196,7 +201,9 @@
 					    			}
 					});
 			</script>
+			</div>
 		</div>
+
 	</div>
 	
 

@@ -9,7 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>MemberAccountList.jsp</title>
-<style type="text/css">
+
+<link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+<style type="text/css"6>
 
 	div#memberList
 	{
@@ -62,7 +66,7 @@
 <body>
 
 <div id="header">
-	<c:import url="02_AdminHeader.jsp"></c:import>
+	<c:import url="AdminHeader.jsp"></c:import>
 </div>
 
 <div id="mainContent">

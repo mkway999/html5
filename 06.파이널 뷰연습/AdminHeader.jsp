@@ -71,10 +71,10 @@
 				<div class="hover-text">문의사항 관리</div>
 			</li>
 			
-			<!-- 로그아웃 버튼 -->
+			<!-- 관리자 쪽지 관리 메뉴 -->
 			<li class="nav-item">
-				<div class="icon"><a href=""><i class="bi bi-unlock-fill"></i><span class="menu-title">로그아웃</span></a></div>
-				<div class="hover-text">로그아웃</div>
+				<div class="icon"><a href=""><i class="bi bi-envelope-fill"></i><span class="menu-title">관리자 쪽지 관리</span></a></div>
+				<div class="hover-text">관리자 쪽지 관리</div>
 			</li>
 		</ul>
 	</nav>

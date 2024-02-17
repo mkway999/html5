@@ -42,8 +42,14 @@
 			<ul class="nav justify-content-end">
 			
 				<li class="nav-item">
-					<div class="icon"><i class="bi bi-bell-fill"></i></div>
-					<div class="hover-text">알림 보기</div>
+					<div class="icon position-relative">
+						<i class="bi bi-envelope-fill"></i>
+						<!-- 미확인 쪽지 갯수 -->
+						<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+							5
+						</span>
+					</div>
+					<div class="hover-text">쪽지 보기</div>
 				</li>
 				
 				<!-- 웹 브라우저가 625 이상 일때 보여지는 메뉴들 -->

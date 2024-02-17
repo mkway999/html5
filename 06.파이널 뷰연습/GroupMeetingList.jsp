@@ -22,7 +22,6 @@
     font-weight: 700;
     font-style: normal;
 	}
-	div.body {width: 1100px; margin: auto; text-align: center;}
 	div.board-info {font-family: 라인Seed;}
 	div.board-title {font-size: 23pt; display: flex; align-items: center;}
 	span.group-name {color: #ff8000; font-size: 30pt;}
@@ -63,6 +62,11 @@
 	span.meeting-vote {background-color: #d1180b;}
 	span.meeting-complete {background-color: #0067a3;}
 	span.meeting-cancel {background-color: gray;}
+	
+	@media screen and (min-width: 0px)
+	{
+		.container {max-width: 1320px; width: 1320px;}
+	}
 </style>
 
 </head>
@@ -82,7 +86,7 @@
 </div>
 
 <!-- 주요 콘텐츠 영역 -->
-<div class="body">
+<div class="container">
 
 	<!-- 좌측 고정메뉴 영역 -->
 	<div class="leftMenu"></div>

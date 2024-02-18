@@ -8,9 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GroupMeetingList.jsp</title>
+<title>FreeBoardList.jsp</title>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <style type="text/css">
@@ -29,12 +29,8 @@
 	div.content-column
 	{
 		font-size: 12pt; font-weight: bold; font-family: 라인Seed; border-bottom: 1px solid #ff8000;
-		border-top: 1px solid #ff8000; text-align: center; 
+		border-top: 1px solid #ff8000; display: flex; justify-content: space-between; text-align: center;
 	}
-	form.filter-form {display: flex; justify-content: space-between;}
-	select.column-filter {background-color: #ff8a3d; border: none; text-align: center; color: white; border-radius: 30px; padding: 5px;}
-	select.column-filter:hover {background-color: #ff6f0f;}
-	option {background: white; text-align: center; color: black; font-family: 맑은 고딕;}
 	.content-column-name {padding: 5px 0px;}
 	.content-column-name, .article {display: inline-block; padding: 5px 0px;}
 	div.content-search {margin-bottom: 10px; text-align: right;}
@@ -44,32 +40,19 @@
 	i.bi-search {color: white; font-size: 12pt;}
 	.search-bar {height: 25px;}
 	
-	span.meeting-vote {font-family: 라인Seed; background-color: red; border-radius: 50px; vertical-align: top; color: white;}
-	span.meeting-complete {font-family: 라인Seed; background-color: blue; border-radius: 50px; vertical-align: top; color: white;}
-	span.meeting-cancel {font-family: 라인Seed; background-color: gray; border-radius: 50px; vertical-align: top; color: white;}
 	div.article {border-bottom: 1px solid #ddd; display: flex; text-align: center; justify-content: space-between;}
 	div.article-element {display: inline-block; font-size: 11pt;}
 	div.article-number.article-element {font-size: small; color: gray;}
 	
 	.content-column-name, .article-element {margin: 2px 5px;}
-	.article-number {width: 80px;}
-	.meeting-category {width: 100px;}
-	.article-title {width: 350px;}
+	.article-number, .view-count, .like-count {width: 80px;}
+	.article-title {width: 450px;}
 	.write-user {width: 100px;}
 	.write-date {width: 120px;}
-	.meeting-date {width: 120px;}
-	.meeting-status {width: 120px;}
 	
-	span.meeting-badge {display: inline-block; border-radius: 20px; font-family: 라인Seed; color: white; background: #ff8000; padding: 1px 7px;}
-	span.meeting-regular {background-color: #ff8a3d;}
-	span.meeting-irregular {background-color: #ffd400;}
-	span.meeting-vote {background-color: #d1180b;}
-	span.meeting-complete {background-color: #0067a3;}
-	span.meeting-cancel {background-color: gray;}
-	
-	@media screen and (min-width: 0px)
+	@media screen and (max-width: 768px)
 	{
-		.container {max-width: 1320px; width: 1320px;}
+		.container {max-width: 720px; width: 720px;}
 	}
 	
 	.article:hover {background-color: #fff2ea;}
@@ -78,8 +61,8 @@
 </head>
 <body>
 
-<!-- 2024-02-11 노은하 -->
-<!-- 각 그룹별 모임 목록 페이지 -->
+<!-- 2024-02-18 노은하 -->
+<!-- 그룹내 자유게시판 글목록 페이지 -->
 
 <!-- 헤더 영역 -->
 <div class="header">
@@ -102,7 +85,7 @@
 	
 		<!-- 게시판 정보 영역 -->
 		<div class="board-info">
-			<div class="board-title">[ <span class="group-name">약속해조</span> ] 모임 게시판</div>
+			<div class="board-title">[ <span class="group-name">약속해조</span> ] 와글와글 게시판</div>
 			<div class="count-article">새글 <span id="new-article">23</span> / <span id="total-article">500</span></div>
 		</div>
 		
@@ -111,8 +94,8 @@
 			<form action="" class="search-form">
 				<select name="searchCategory" id="" class="search-category">
 					<option value="">제목</option>
-					<option value="">발의자</option>
-					<option value="">모임일</option>
+					<option value="">작성자</option>
+					<option value="">내용</option>
 				</select>
 				<input type="text" name="searchContent" class="search-bar" />
 				<button type="submit" class="btn-search"><i class="bi bi-search"></i></button>
@@ -122,41 +105,12 @@
 		<div class="content-list-div">
 			<!-- 게시글 컬럼명 영역 -->
 			<div class="content-column">
-				<form action="" class="filter-form">
-					<div class="content-column-name article-number">글번호</div>
-	
-					<!-- 전체보기 / 정기모임 / 번개모임 -->
-					<div class="content-column-name meeting-category">
-						<select class="column-filter" name="meeting-category" id="">
-							<option selected="selected">모임종류</option>
-							<option value="regular">정기모임</option>
-							<option value="irregular">번개모임</option>
-						</select>
-					</div>
-					
-					<div class="content-column-name article-title">제목</div>
-					<div class="content-column-name write-user">발의자</div>
-					<div class="content-column-name write-date">발의일</div>
-					
-					<!-- 전체보기 / 빠른순 / 느린순 -->
-					<div class="content-column-name meeting-date">
-						<select name="meeting-date" id="" class="column-filter">
-							<option selected="selected">모임일시</option>
-							<option value="">빠른순</option>
-							<option value="">느린순</option>
-						</select>
-					</div>
-				
-					<!-- 전체보기 / 참석여부 확인중 / 확정된 모임 / 철회된 모임 -->
-					<div class="content-column-name meeting-status">
-						<select class="column-filter" name="meeting-state" id="">
-							<option selected="selected">모임상태</option>
-							<option value="">참석여부 확인중</option>
-							<option value="">확정된 모임</option>
-							<option value="">철회된 모임</option>
-						</select>			
-					</div>
-				</form>
+				<div class="content-column-name article-number">글번호</div>
+				<div class="content-column-name article-title">제목</div>
+				<div class="content-column-name write-user">작성자</div>
+				<div class="content-column-name write-date">작성일</div>
+				<div class="content-column-name view-count">조회수</div>
+				<div class="content-column-name like-count">좋아요</div>
 			</div><!-- div.content-column -->
 			
 			
@@ -164,42 +118,29 @@
 			<div class="content-list">
 				<div class="article">
 					<div class="article-number article-element">1</div>
-					<div class="meeting-category article-element">
-						<span class="meeting-regular meeting-badge">정기모임</span>
-					</div>
 					<div class="article-title article-element">우리 만날 때 됐다.</div>
 					<div class="write-user article-element">노은하</div>
 					<div class="write-date article-element">2024-02-13</div>
-					<div class="meeting-date article-element">2024-02-14</div>
-					<div class="meeting-status article-element">
-						<span class="meeting-vote meeting-badge">참석여부 확인중</span>
-					</div>
+					<div class="view-count article-element">100</div>
+					<div class="like-count article-element">4</div>
 				</div>
+				
 				<div class="article">
 					<div class="article-number article-element">2</div>
-					<div class="meeting-category article-element">
-						<span class="meeting-irregular meeting-badge">번개모임</span>
-					</div>
 					<div class="article-title article-element">정말 시간이 빠른건지 느린건</div>
 					<div class="write-user article-element">노금하</div>
 					<div class="write-date article-element">2024-02-11</div>
-					<div class="meeting-date article-element">2024-02-12</div>
-					<div class="meeting-status article-element">
-						<span class="meeting-complete meeting-badge">모임확정</span>
-					</div>
+					<div class="view-count article-element">35</div>
+					<div class="like-count article-element">30</div>
 				</div>
+				
 				<div class="article">
 					<div class="article-number article-element">3</div>
-					<div class="meeting-category article-element">
-						<span class="meeting-regular meeting-badge">정기모임</span>
-					</div>
 					<div class="article-title article-element">삼일절만 기다린다</div>
 					<div class="write-user article-element">땡뻘</div>
 					<div class="write-date article-element">2024-01-11</div>
-					<div class="meeting-date article-element">2024-01-12</div>
-					<div class="meeting-status article-element">
-						<span class="meeting-cancel meeting-badge">모임철회</span>
-					</div>
+					<div class="view-count article-element">1</div>
+					<div class="like-count article-element">0</div>
 				</div>
 			</div>
 		

@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<%=cp %>/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style type="text/css">
 
 	@font-face {
@@ -43,25 +44,37 @@
 	div.article-content {text-align: center;}
 	div.article-detail, div.article-vote {display: inline-block; border: 1px solid #ff8000; vertical-align: top;}
 	
+	/* 투표 영역 */
+	input.vote-title {border: none; display: block; width: 100%; text-align: center;}
+	
 	/* 댓글 영역 */
 	div.comment-list {border: 0px solid gray;}
-	div.commenter-profile, div.comment-info, div.commenter-name, div.comment-create, div.comment-like, div.like-button
-	, div.comment-detail, div.recomment-detail {display: inline-block;}
+	div.commenter-profile, div.commenter-name, div.comment-info, div.comment-create, div.comment-like, div.like-button
+	, div.comment-detail, div.recomment-detail, div.mycomment-detail, div.comment-menu {display: inline-block;}
+	
+	div.commenter-info {display: flex; justify-content: space-between; margin-bottom: 5px;}
+	div.mycomment-info {flex-direction: row-reverse;}
+	
+	div.comment-create {font-size: small; color: gray;}
 	
 	div.commenter-profile {margin-right: 6px;}
-	img.profile-img {width: 55px; border-radius: 50px;}
+	img.profile-img {width: 55px; border-radius: 50px; margin: 0px 5px;}
+	
+	i.bi-three-dots {font-size: 12pt; color: gray; border: 1px solid #ddd; border-radius: 20px; padding: 0px 5px;}
+	div.comment-menu:hover > div.hover-text {display: block; z-index: 1;}
 	
 	div.comment {border-bottom: 1px solid #ddd; border-top: 1px solid #ddd; padding: 10px 0px; display: flex;}
 	div.recomment {display: flex; padding: 10px 0px;}
-	div.comment-detail, div.recomment-detail 
+	div.comment-detail, div.recomment-detail, div.mycomment-detail 
 	{
-		background-color: #ff8000; color: white; padding: 2px 9px; border-radius: 0px 60px 60px 60px; margin: 3px 0px;
-		font-size: 13pt;
+		background-color: #ff8000; color: white; padding: 2px 20px; border-radius: 0px 50px 50px 50px; margin: 3px 10px 0px 10px;
+		font-size: 13pt; 
 	}
 	div.recomment-detail {background-color: #ffd400;}
+	div.mycomment-detail {border-radius: 50px 0px 50px 50px;}
 	
-	span.bg-like {background-color: #ff3399; font-size: 8pt;}
-	i.bi-heart, i.bi-heart-fill {font-size: 17pt; color: #ff3399;}
+	span.bg-like {background-color: #ff3399; font-size: 7pt;}
+	i.bi-heart, i.bi-heart-fill {font-size: 14pt; color: #ff3399;}
 	
 	#comment-input {border:none; width: 100%;}
 </style>
@@ -132,11 +145,40 @@
 				
 				<!-- 모임 투표 영역 -->
 				<div class="article-vote">
-					여기서<br>
-					참석<br>
-					불참석<br>
-					투표할거고<br>
-					투표현황보기
+					<form action="" class="meeting-vote-form">
+						<input type="text" class="vote-title" value="우리 만날 때 됐다." readonly="readonly"/>
+						
+						<input type="radio" name="vote-attend" id="attend" />
+						<label for="attend">참석</label>
+						<br>
+						
+						<input type="radio" name="vote-attend" id="notAttend" />
+						<label for="notAttend">불참석</label>
+						<br>
+						
+						<input type="button" value="확인" />
+					</form>
+					
+					<div class="vote-chart">
+						<canvas id="vote-status">
+						</canvas>
+						<script type="text/javascript">
+						
+							var chart = document.getElementById("vote-status");
+							new Chart(chart,
+								{
+									type:'doughnut'
+									, data: {
+												labels: ['참석', '불참석', '미투표']
+												, datasets: [{
+																data: [5,6,10]
+																, backgroundColor: '#ff8000'
+															}]
+											}
+								});
+						
+						</script>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -157,6 +199,10 @@
 					<div class="commenter-info">
 						<div class="commenter-name">금하</div>
 						<div class="comment-create">2024-02-17</div>
+						<div class="comment-menu">
+							<i class="bi bi-three-dots"></i>
+							<div class="hover-text">댓글 메뉴보기</div>
+						</div>
 					</div>
 					<div class="comment-detail">
 						투썸가서 스초생 한판먹장
@@ -180,6 +226,10 @@
 							<div class="commenter-info">
 								<div class="commenter-name">부적응자</div>
 								<div class="comment-create">2024-02-17</div>
+								<div class="comment-menu">
+									<i class="bi bi-three-dots"></i>
+									<div class="hover-text">댓글 메뉴보기</div>
+								</div>
 							</div>
 							<div class="recomment-detail">
 								아이스박스 아니면 안 감
@@ -208,6 +258,10 @@
 							<div class="commenter-info">
 								<div class="commenter-name">금하</div>
 								<div class="comment-create">2024-02-17</div>
+								<div class="comment-menu">
+									<i class="bi bi-three-dots"></i>
+									<div class="hover-text">댓글 메뉴보기</div>
+								</div>
 							</div>
 							<div class="recomment-detail">
 								걍 오지마
@@ -227,8 +281,71 @@
 			
 			</div>
 			
+			버전1
+			<div class="comment">
+				<div class="comment-info">
+					<div class="commenter-info mycomment-info">
+						<div class="commenter-name">노은하</div>
+						<div class="comment-create">2024-02-17</div>
+						<div class="comment-menu">
+							<i class="bi bi-three-dots"></i>
+							<div class="hover-text">댓글 메뉴보기</div>
+						</div>
+					</div>
+					
+					<div class="comment-like">
+						<div class="like-button position-relative">
+							<i class="bi bi-heart"></i>
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-like">
+								4
+							</span>						
+						</div>
+					</div>
+					
+					<div class="mycomment-detail">
+						여기서 싸우지말고 나가<br>
+						줄바꿈
+					</div>
+				</div>
+					
+				<div class="commenter-profile">
+					<img src="<%=cp %>/images/basic-profile.png" alt="profile" class="profile-img" />
+				</div>
+			
+			</div>
+			
+			버전2
+			<div class="comment">
+				<div class="commenter-profile">
+					<img src="<%=cp %>/images/basic-profile.png" alt="profile" class="profile-img" />
+				</div>
+				
+				<div class="comment-info">
+					<div class="commenter-info">
+						<div class="commenter-name">노은하(나)</div>
+						<div class="comment-create">2024-02-17</div>
+						<div class="comment-menu">
+							<i class="bi bi-three-dots"></i>
+							<div class="hover-text">댓글 메뉴보기</div>
+						</div>
+					</div>
+					<div class="comment-detail">
+						여기서 싸우지말고 나가<br>
+						테스트입니다
+					</div>
+					<div class="comment-like">
+						<div class="like-button position-relative">
+							<i class="bi bi-heart-fill"></i>
+							<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-like">
+								1
+							</span>						
+						</div>
+					</div>
+			</div>
+			
 		</div>
 		
+		</div>
 		<!-- 댓글 입력하기 창 -->
 		<div class="write-comment">
 		
